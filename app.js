@@ -19,7 +19,7 @@ const customError = require('./utils/customError')
 const app=express()
 
 app.use(cors({
-    origin:['https://splendorous-pothos-ea7bfc.netlify.app/','http://localhost:5173'],
+    origin:['https://merry-salmiakki-57b7ff.netlify.app','http://localhost:5173'],
     methods: 'GET,POST,PATCH,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true,
