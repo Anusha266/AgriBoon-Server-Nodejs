@@ -53,7 +53,7 @@ exports.fetch_all=asyncErrorHandler(async(req,res,next)=>{
 })
 
 exports.getByName=asyncErrorHandler(async(req,res,next)=>{
-    console.log("fetching product by name",productName)
+    const productName=req.query.name;
     if (!productName) {
         return next(new customError("productName is required"),400);
     }
