@@ -3,9 +3,9 @@ const express=require('express')
 const router=express.Router();
 const productController=require('../controllers/productsController')
 const authController=require('../controllers/authController');
-const { _router } = require('../app');
 
   
+router.get(process.env.GET_BY_NAME,productController.getByName)
 router.post(process.env.CREATE,authController.protect,productController.upload)
 router.get(process.env.GET_ALL,productController.fetch_all)
 router.get(process.env.GET_BY_ID,productController.getProductById)

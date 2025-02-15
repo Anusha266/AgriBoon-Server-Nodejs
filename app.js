@@ -65,7 +65,6 @@ app.use(process.env.PRODUCTS_ROUTE,upload.single('image'),productRoute)
 
 
 
-
 app.use("*",(req,res,next)=>{
     return next(new customError(`can't find this url:${req.originalUrl}`,404));
 })

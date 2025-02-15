@@ -53,6 +53,15 @@ exports.fetch_all=asyncErrorHandler(async(req,res,next)=>{
 
 })
 
+exports.getByName=asyncErrorHandler(async(req,res,next)=>{
+    const productName=req.query.name;
+    if (!productName) {
+        return next(new customError("productName is required"),400);
+    }
+    const products=await Product.find({name:productName})
+    sendResponse(res,200,products);
+})
+
 exports.getProductById=asyncErrorHandler((async(req,res,next)=>{
         const product=await Product.find({id:req.params.id}).populate('owner_details')
         sendResponse(res,200,product)
