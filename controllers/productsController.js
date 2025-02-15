@@ -47,18 +47,17 @@ exports.upload=asyncErrorHandler(async(req,res,next)=>{
 
 
 exports.fetch_all=asyncErrorHandler(async(req,res,next)=>{
-    
     const products=await Product.find({status:'initial'}).populate('owner_details');
     sendResponse(res,200,products)
 
 })
 
 exports.getByName=asyncErrorHandler(async(req,res,next)=>{
-    const productName=req.query.name;
+    console.log("fetching product by name",productName)
     if (!productName) {
         return next(new customError("productName is required"),400);
     }
-    const products=await Product.find({name:productName})
+    const products=await Product.find({name:productName,status:"initial"})
     sendResponse(res,200,products);
 })
 

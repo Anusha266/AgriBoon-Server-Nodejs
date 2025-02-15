@@ -4,10 +4,11 @@ const router=express.Router();
 const productController=require('../controllers/productsController')
 const authController=require('../controllers/authController');
 
-  
+
+
+router.get(process.env.GET_ALL,productController.fetch_all)
 router.get(process.env.GET_BY_NAME,productController.getByName)
 router.post(process.env.CREATE,authController.protect,productController.upload)
-router.get(process.env.GET_ALL,productController.fetch_all)
 router.get(process.env.GET_BY_ID,productController.getProductById)
 router.get(process.env.GET_CART_PRODUCTS,productController.getCardProducts)
 router.delete(process.env.DELETE_BY_ID,productController.deleteProduct)
